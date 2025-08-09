@@ -1,6 +1,5 @@
 "use client";
 
-import "./page.css";
 import kakaoLoginImg from "public/kakao_login_large_wide.png";
 import Image from "next/image";
 
@@ -8,7 +7,7 @@ const handleKakaoLogin = () => {
   window.location.href = "http://localhost/oauth2/authorization/kakao";
 };
 
-export default function Test() {
+export default function Login() {
   return (
     <>
       <div className="h-full flex flex-col justify-center align-center gap-y-8">
