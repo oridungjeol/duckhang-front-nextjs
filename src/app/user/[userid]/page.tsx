@@ -1,10 +1,27 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 
-// import Post from "./post";
+import { ReactElement, useState } from "react";
+
+import Post from "./post";
 import Review from "./review";
 
 export default function Profile() {
+  type MenuType = "post" | "review";
+  const [selectedMenu, setSelectedMenu] = useState<MenuType>("post");
+
+  const renderContent = (): ReactElement => {
+    if (selectedMenu == "post") {
+      return <Post />;
+    } else if (selectedMenu == "review") {
+      return <Review />;
+    } else {
+      return <></>;
+    }
+  };
+
   return (
     <>
       <div className="w-full min-h-(calc(100vh-124.62px)) bg-(--background) flex justify-center">
@@ -28,15 +45,32 @@ export default function Profile() {
             </div>
           </div>
           <div className="w-full flex justify-center mt-10 border-b-2 border-(--point-orange)">
-            <button className="w-[120px] h-[45px] border-b-3 border-(--point-orange)">
+            <button
+              className={`w-[120px] h-[45px] ${
+                selectedMenu == "post"
+                  ? `border-b-3 border-(--point-orange)`
+                  : ``
+              } `}
+              onClick={() => {
+                setSelectedMenu("post");
+              }}
+            >
               게시글
             </button>
-            <button className="w-[120px] h-[45px] border-b-3 border-(--point-orange)">
+            <button
+              className={`w-[120px] h-[45px] ${
+                selectedMenu == "review"
+                  ? `border-b-3 border-(--point-orange)`
+                  : ``
+              } `}
+              onClick={() => {
+                setSelectedMenu("review");
+              }}
+            >
               리뷰
             </button>
           </div>
-          {/* <Post /> */}
-          <Review />
+          {renderContent()}
         </div>
       </div>
     </>
