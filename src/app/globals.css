@@ -1,11 +1,14 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffdc58;
-  --foreground: #378ffb;
+  --main-color: #ffdc58;
+  --point-blue: #378ffb;
+  --point-orange: #ff9a42;
+  --background: #f9f8f7;
 
   --layout-max-w: 520px;
   --layout-min-h: 100vh;
+  --content-frame: 80%;
 
   width: var(--layout-max-w);
   height: var(--layout-min-h);
@@ -16,8 +19,8 @@
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-background: var(--main-color);
+  --color-foreground: var(--point-blue);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
